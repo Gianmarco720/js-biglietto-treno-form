@@ -8,29 +8,36 @@ const btnGenEl = document.querySelector('button');
 btnGenEl.addEventListener("click", function () {
     // chiedo il nome all'utente
     const userName = document.getElementById('name').value;
-    console.log(`Nome passeggero: ${userName}`);
+    document.getElementById("p_name").innerHTML = userName;
+    //console.log(`Nome passeggero: ${userName}`);
 
     // chiedo l'età all'utente
     const userAge = document.getElementById('age').value;
-    console.log(`Età passeggero: ${userAge}`);
+    //console.log(`Età passeggero: ${userAge}`);
 
     // chiedo i chilometri da percorrere all'utente
     const userKm = document.getElementById('km').value;
-    console.log(`Chilometri da percorrere: ${userKm}`);
+    //console.log(`Chilometri da percorrere: ${userKm}`);
 
     // prezzo totale del biglietto
     let ticketPrice = priceKm * userKm;
 
-    // calcolo il valore del biglietto per gli over 65 e i minorenni
+    // calcolo il valore del biglietto
     if (userAge >= 65) {
         let discount = ((ticketPrice * 40) / 100);
         ticketPrice = ticketPrice - discount;
-        console.log(`Il prezzo totale del biglietto è: ${ticketPrice.toFixed(2)} €`);
+        document.getElementById("p_sale").innerHTML = 'Sconto Over 65';
+        document.getElementById("p_cost").innerHTML = `${ticketPrice.toFixed(2)} €`;
+        //console.log(`Il prezzo totale del biglietto è: ${ticketPrice.toFixed(2)} €`);
     } else if (userAge < 18) {
         let discount = ((ticketPrice * 20) / 100);
         ticketPrice = ticketPrice - discount;
-        console.log(`Il prezzo totale del biglietto è: ${ticketPrice.toFixed(2)} €`);
+        document.getElementById("p_sale").innerHTML = 'Sconto Minorenni';
+        document.getElementById("p_cost").innerHTML = `${ticketPrice.toFixed(2)} €`;
+        //console.log(`Il prezzo totale del biglietto è: ${ticketPrice.toFixed(2)} €`);
     } else {
-        console.log(`Il prezzo totale del biglietto è: ${ticketPrice.toFixed(2)} €`);
+        document.getElementById("p_sale").innerHTML = 'Nessuno sconto';
+        document.getElementById("p_cost").innerHTML = `${ticketPrice.toFixed(2)} €`;
+        //console.log(`Il prezzo totale del biglietto è: ${ticketPrice.toFixed(2)} €`);
     }
 })

@@ -1,0 +1,16 @@
+body {
+    background-color: #B91450;
+}
+
+h5 {
+    color: #B91450;
+}
+
+.ticket_calc {
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,1.15)!important;
+}
